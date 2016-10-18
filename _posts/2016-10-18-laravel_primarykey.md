@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Laravel中定义复合主键
-tags: [laravel,组合主键]
+tags: [laravel,复合主键]
 ---
 
 laravel默认主键是id，但有的时候我们建表时可能会需要用到复合主键，那么laravel中使用Eloquent Medel如何定义复合主键呢？直接上代码。
@@ -54,12 +54,10 @@ trait HasCompositePrimaryKey
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Goods extends Model
 {
     use \App\Traits\HasCompositePrimaryKey;
-    use SoftDeletes;
 
     protected $primaryKey = ['param1', 'param2']; //设置组合主键
 
